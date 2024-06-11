@@ -1,13 +1,7 @@
-//
-//  WelcomeScreen.swift
-//  SmartAisle
-//
-//  Created by Abu Hasib on 09/06/2024.
-//
 import SwiftUI
 
 struct WelcomeScreen: View {
-    @Binding var navigate: String
+    @Binding var navigate: Screen
     
     var body: some View {
         LinearGradient(gradient: Gradient(colors: [Color(red: 0.53, green: 0.81, blue: 0.92), Color(red: 0.53, green: 0.82, blue: 0.98)]), startPoint: .top, endPoint: .bottom)
@@ -28,7 +22,7 @@ struct WelcomeScreen: View {
                     
                     HStack(spacing: 20) {
                         Button(action: {
-                            navigate = "LoginScreen"
+                            navigate = .login
                         }) {
                             Text("Yes")
                                 .fontWeight(.bold)
@@ -40,7 +34,7 @@ struct WelcomeScreen: View {
                         }
                         
                         Button(action: {
-                            navigate = "RegistrationScreen"
+                            navigate = .registration
                         }) {
                             Text("No")
                                 .fontWeight(.bold)
@@ -58,7 +52,6 @@ struct WelcomeScreen: View {
 
 struct WelcomeScreen_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeScreen(navigate: .constant("WelcomeScreen"))
+        WelcomeScreen(navigate: .constant(.welcome))
     }
 }
-
